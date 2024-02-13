@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special For You</title>
+    <link rel="icon" type="image/x-icon" href="heart.gif" />
+
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/valentine");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Valentine", sans-serif;
+        --red: #db2425;
+        --black: linear-gradient(35deg, #151515, #454545);
+        --white: #fcfcfc;
+        color: var(--red) !important;
+      }
+
+      #container {
+        position: relative;
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: var(--black);
+        overflow: hidden;
+      }
+
+      button {
+        border: 0;
+        outline: 0;
+        background: var(--white) !important;
+        box-shadow: 1px 1px 4px var(--red);
+        font-size: 1.7rem;
+        width: 10rem;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      div:where(.swal2-container).swal2-center > .swal2-popup {
+        min-height: 90%;
+        background: var(--white) !important;
+      }
+      h2:where(.swal2-title) {
+        padding: 0.8rem 1rem !important;
+      }
+
+      .swal2-confirm {
+        font-size: 1.3rem !important;
+        width: 100%;
+        border: none !important;
+        outline: none !important;
+        background: var(--red) !important;
+        color: var(--white) !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+      }
+
+      .swal2-styled:hover {
+        background-image: none !important;
+      }
+
+      .swal2-confirm:focus {
+        box-shadow: none !important;
+      }
+
+      p {
+        color: var(--red);
+        font-size: 1.4rem;
+      }
+
+      #rejectBtn {
+        top: 60%;
+        left: calc(50vw - 11rem);
+        z-index: 2;
+        position: absolute;
+      }
+
+      #acceptBtn {
+        top: 60%;
+        right: calc(50vw - 11rem);
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <!--  -->
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 13rem;
+        ">
+        <img src="heart.gif" alt="" />
+
+        <p>will you be my valentine?</p>
+      </div>
+
+      <!--  -->
+      <div
+        style="
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          align-items: center;
+        ">
+        <button id="rejectBtn">No :(</button>
+        <button id="acceptBtn">Yes :)</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      var d = document.getElementById("rejectBtn");
+      var s = document.getElementById("container");
+      var f = document.getElementById("acceptBtn");
+      d.onmouseover = () => {
+        d.style.top = Math.random() * (s.offsetHeight - d.offsetHeight) + "px";
+        d.style.left = Math.random() * (s.offsetWidth - d.offsetWidth) + "px";
+      };
+
+      f.onclick = () => {
+        Swal.fire({
+          title: "yeay chocolate !!",
+          text: "i don't expect you to say yes (●'◡'●)",
+          imageUrl:
+            "https://media.tenor.com/jNEeZblha6YAAAAi/valentine-valentine-day.gif",
+          imageWidth: 200,
+          imageHeight: 200,
+          confirmButtonText: "thank you sweetheart 💕",
+        });
+      };
+    </script>
+  </body>
+</html>
